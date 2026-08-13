@@ -2548,18 +2548,19 @@ button {
 .company-note__mark span {
   position: relative;
   z-index: 2;
-  display: grid;
   width: 130px;
   height: 130px;
-  place-items: center;
-  color: white;
+  overflow: hidden;
   border-radius: 32px;
-  background: var(--orange);
+  background: white;
   box-shadow:
     0 0 0 12px rgba(255, 90, 31, 0.08),
     0 30px 60px rgba(0, 0, 0, 0.4);
-  font-size: 36px;
-  font-weight: 900;
+}
+
+.company-note__mark span img {
+  object-fit: cover;
+  transform: scale(1.38);
 }
 
 .company-note__copy > p:not(.kicker) {

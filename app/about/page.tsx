@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowUpRight,
   Crosshair,
@@ -89,7 +90,14 @@ export default function AboutPage() {
       <section className="company-note">
         <div className="shell company-note__grid">
           <SectionReveal className="company-note__mark">
-            <span>SO</span>
+            <span>
+              <Image
+                src="/stackorcs-logo.png"
+                alt="StackOrcs bear mark"
+                fill
+                sizes="130px"
+              />
+            </span>
           </SectionReveal>
           <SectionReveal className="company-note__copy" delay={0.06}>
             <p className="kicker kicker--light">The name</p>
