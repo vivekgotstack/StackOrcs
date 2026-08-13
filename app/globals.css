@@ -5,6 +5,7 @@
 }
 
 :root {
+  --font-sans: Inter, "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
   --ink: #080807;
   --ink-soft: #11110f;
   --paper: #f4f0e8;
@@ -37,8 +38,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family:
-    Inter, "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -2695,7 +2695,7 @@ button {
 .contact-form select {
   width: 100%;
   color: var(--ink);
-  font-family: inherit;
+  font-family: var(--font-sans) !important;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: normal;
@@ -2710,8 +2710,26 @@ button {
 }
 
 .contact-form option {
-  font-family: inherit;
+  color: var(--ink);
+  font-family: var(--font-sans) !important;
   font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.contact-form select:has(option[value=""]:checked) {
+  color: rgba(8, 8, 7, 0.34);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(8, 8, 7, 0.34);
+  font-family: var(--font-sans) !important;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  opacity: 1;
 }
 
 .contact-form input,
