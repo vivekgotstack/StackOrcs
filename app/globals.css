@@ -527,13 +527,11 @@ button {
   width: min(40vw, 610px);
   min-width: 480px;
   aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(8, 8, 7, 0.14);
   border-radius: 36px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.025), transparent),
-    rgba(255, 255, 255, 0.018);
+  background: var(--paper-bright);
   box-shadow:
-    inset 0 0 80px rgba(255, 255, 255, 0.025),
+    inset 0 0 80px rgba(8, 8, 7, 0.025),
     0 40px 100px rgba(0, 0, 0, 0.34);
 }
 
@@ -543,7 +541,7 @@ button {
   content: "";
   width: 12px;
   height: 12px;
-  border-color: rgba(255, 255, 255, 0.32);
+  border-color: rgba(8, 8, 7, 0.3);
 }
 
 .system-orbit::before {
@@ -572,10 +570,16 @@ button {
   mask-image: radial-gradient(circle, black 10%, transparent 70%);
 }
 
+.system-orbit .orbit-grid {
+  background-image:
+    linear-gradient(rgba(8, 8, 7, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 8, 7, 0.07) 1px, transparent 1px);
+}
+
 .orbit-ring {
   position: absolute;
   inset: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(8, 8, 7, 0.16);
   border-radius: 50%;
   translate: -50% -50%;
 }
@@ -595,7 +599,7 @@ button {
 .orbit-ring--inner {
   width: 36%;
   height: 36%;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(8, 8, 7, 0.2);
   border-style: dotted;
 }
 
@@ -635,13 +639,13 @@ button {
   width: 145px;
   height: 145px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(8, 8, 7, 0.1);
   border-radius: 34px;
   background: white;
   translate: -50% -50%;
   box-shadow:
-    0 0 0 10px rgba(255, 255, 255, 0.04),
-    0 30px 60px rgba(0, 0, 0, 0.32);
+    0 0 0 10px rgba(255, 90, 31, 0.05),
+    0 24px 54px rgba(216, 61, 0, 0.2);
 }
 
 .orbit-core img {
@@ -699,7 +703,7 @@ button {
   display: flex;
   align-items: center;
   gap: 7px;
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(8, 8, 7, 0.52);
   font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 9px;
   letter-spacing: 0.08em;
