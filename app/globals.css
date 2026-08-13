@@ -112,11 +112,9 @@ button {
 
 @keyframes route-enter {
   from {
-    clip-path: inset(0 0 0 3%);
     transform: translate3d(0, 12px, 0);
   }
   to {
-    clip-path: inset(0 0 0 0);
     transform: translate3d(0, 0, 0);
   }
 }
@@ -782,6 +780,39 @@ button {
 
 .intro-section {
   padding-top: clamp(130px, 13vw, 200px);
+  background: linear-gradient(
+    to bottom,
+    var(--paper) 0,
+    var(--paper) calc(100% - 96px),
+    var(--ink-soft) 100%
+  );
+}
+
+.capabilities-section {
+  background: linear-gradient(
+    to bottom,
+    var(--ink-soft) 0,
+    var(--ink-soft) calc(100% - 96px),
+    var(--warm) 100%
+  );
+}
+
+.operating-section {
+  background: linear-gradient(
+    to bottom,
+    var(--warm) 0,
+    var(--warm) calc(100% - 96px),
+    var(--paper) 100%
+  );
+}
+
+.trust-section {
+  background: linear-gradient(
+    to bottom,
+    var(--paper) 0,
+    var(--paper) calc(100% - 96px),
+    var(--orange-deep) 100%
+  );
 }
 
 .intro-grid {
