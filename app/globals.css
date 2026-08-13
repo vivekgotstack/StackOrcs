@@ -49,8 +49,17 @@ button,
 a,
 input,
 textarea,
-select {
+select,
+option {
   font: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
 }
 
 a {
@@ -2686,6 +2695,10 @@ button {
 .contact-form select {
   width: 100%;
   color: var(--ink);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
   border: 0;
   border-bottom: 1px solid rgba(8, 8, 7, 0.24);
   border-radius: 0;
@@ -2694,6 +2707,11 @@ button {
   transition:
     border 200ms ease,
     box-shadow 200ms ease;
+}
+
+.contact-form option {
+  font-family: inherit;
+  font-size: 16px;
 }
 
 .contact-form input,
@@ -4087,7 +4105,7 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(46px, 15.5vw, 62px);
+    font-size: clamp(42px, 13vw, 55px);
   }
 
   .hero-actions,
@@ -4161,8 +4179,9 @@ button {
   }
 
   .trust-orbit {
-    width: 300px;
-    height: 300px;
+    width: min(300px, 100%);
+    height: auto;
+    aspect-ratio: 1;
   }
 
   .closing-cta,
@@ -4302,6 +4321,10 @@ button {
 
   .contact-grid {
     gap: 54px;
+  }
+
+  #project-brief {
+    scroll-margin-top: 68px;
   }
 
   .contact-form,

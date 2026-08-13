@@ -3,9 +3,9 @@ import path from "node:path";
 import sharp from "sharp";
 
 const root = process.cwd();
-const sourcePath = path.join(root, "public", "stackorcs-logo.png");
+const sourcePath = process.argv[2] || path.join(root, "public", "stackorcs-logo.png");
 const publicIconDirectory = path.join(root, "public", "icons");
-const brandBackground = { r: 8, g: 8, b: 7, alpha: 1 };
+const brandBackground = { r: 255, g: 255, b: 255, alpha: 1 };
 
 await mkdir(publicIconDirectory, { recursive: true });
 
@@ -24,7 +24,7 @@ for (let index = 0; index < data.length; index += 4) {
   const redOverBlue = red - blue;
   const orangeStrength = Math.min(redOverGreen, redOverBlue);
   data[index + 3] =
-    redOverGreen > 10 && redOverBlue > 20
+    red > 120 && redOverGreen > 10 && redOverBlue > 20
       ? Math.max(0, Math.min(255, (orangeStrength - 6) * 8))
       : 0;
 }
@@ -43,7 +43,10 @@ const transparentMark = await sharp(data, {
 async function makeIcon(size, markScale = 0.78) {
   const markSize = Math.round(size * markScale);
   const mark = await sharp(transparentMark)
-    .resize(markSize, markSize, { fit: "contain" })
+    .resize(markSize, markSize, {
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
     .png()
     .toBuffer();
 
