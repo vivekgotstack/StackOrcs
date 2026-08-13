@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { ArrowRight, Check, SpinnerGap } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight, Check, SpinnerGap } from "@phosphor-icons/react";
 
 export function NewsletterPanel() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -45,6 +45,14 @@ export function NewsletterPanel() {
           Concise perspectives on engineering, AI, cloud, security, and operating
           modern digital systems. Published when there is something worth saying.
         </p>
+        <a
+          className="newsletter-panel__linkedin"
+          href="https://www.linkedin.com/newsletters/stackorcs-7493322885793476609"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Read StackOrcs on LinkedIn <ArrowUpRight aria-hidden="true" />
+        </a>
       </div>
       <form onSubmit={subscribe}>
         <label>

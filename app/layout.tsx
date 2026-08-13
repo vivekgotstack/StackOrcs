@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   publisher: "StackOrcs",
   category: "technology",
   title: {
-    default: "StackOrcs — Digital Engineering, Built to Move",
-    template: "%s — StackOrcs",
+    default: "StackOrcs",
+    template: "%s | StackOrcs",
   },
   description:
     "StackOrcs designs and engineers fast digital products, intelligent automation, cloud platforms, and observable systems.",

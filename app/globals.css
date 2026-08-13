@@ -1574,6 +1574,26 @@ button {
   line-height: 1.65;
 }
 
+.newsletter-panel__linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 18px;
+  color: var(--orange-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.newsletter-panel__linkedin svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 220ms var(--ease-out);
+}
+
+.newsletter-panel__linkedin:hover svg {
+  transform: translate(3px, -3px);
+}
+
 .newsletter-panel form {
   display: grid;
   grid-template-columns: 0.7fr 1.3fr 54px;
@@ -1687,6 +1707,13 @@ button {
   color: var(--muted-dark);
   font-size: 14px;
   line-height: 1.6;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 9px;
 }
 
 .social-link {

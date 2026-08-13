@@ -37,14 +37,24 @@ export function SiteFooter() {
               Strategy, product, cloud, and operations—engineered as one
               connected system.
             </p>
-            <a
-              className="social-link"
-              href="https://www.linkedin.com/company/stackorcs/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn <ArrowUpRight aria-hidden="true" />
-            </a>
+            <div className="footer-social-links">
+              <a
+                className="social-link"
+                href="https://www.linkedin.com/company/stackorcs/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn company <ArrowUpRight aria-hidden="true" />
+              </a>
+              <a
+                className="social-link"
+                href="https://www.linkedin.com/groups/39390005/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                StackOrcs Group <ArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
           </div>
           {columns.map((column) => (
             <div className="footer-column" key={column.title}>
