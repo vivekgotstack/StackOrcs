@@ -51,20 +51,30 @@ export function HomeExperience() {
   return (
     <main id="main-content" className="gateway-home">
       <section className="gateway-hero">
-        <div className="hero-noise" aria-hidden="true" />
-        <div className="hero-lines" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </div>
+        <video
+          className="gateway-hero__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/stackorcs-brand-hero-poster.jpg"
+          controlsList="nodownload nofullscreen noplaybackrate noremoteplayback"
+          disablePictureInPicture
+          disableRemotePlayback
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/stackorcs-brand-hero.mp4" type="video/mp4" />
+        </video>
         <div className="shell gateway-hero__grid">
           <div className="gateway-hero__copy">
             <p className="gateway-availability">
               <span /> Engineering partner for ambitious teams
             </p>
             <h1>
-              Digital systems,
-              <em>built to move.</em>
+              We build digital systems
+              <em>that move business.</em>
             </h1>
             <p className="gateway-hero__lede">
               StackOrcs connects strategy, product engineering, cloud, AI,
@@ -85,29 +95,6 @@ export function HomeExperience() {
               <span>Remote-first</span>
               <span>Secure by design</span>
               <span>Performance-minded</span>
-            </div>
-          </div>
-
-          <div className="gateway-film">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster="/stackorcs-system-poster.jpg"
-              controlsList="nodownload nofullscreen noplaybackrate"
-              disablePictureInPicture
-              aria-hidden="true"
-              tabIndex={-1}
-            >
-              <source src="/stackorcs-system-loop.webm" type="video/webm" />
-              <source src="/stackorcs-system-loop.mp4" type="video/mp4" />
-            </video>
-            <div className="gateway-film__wash" aria-hidden="true" />
-            <div className="gateway-film__meta" aria-hidden="true">
-              <span>StackOrcs / Connected delivery</span>
-              <span>System online</span>
             </div>
           </div>
         </div>
