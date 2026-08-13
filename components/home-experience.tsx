@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -50,6 +51,19 @@ const principles = [
   "Performance and accessibility from the first commit",
   "Security, observability, and ownership built in",
   "Systems your team can understand and evolve",
+];
+
+const ribbonItems = [
+  "PRODUCT ENGINEERING",
+  "CLOUD SYSTEMS",
+  "APPLIED AI",
+  "OBSERVABILITY",
+  "SECURE DELIVERY",
+  "PRODUCT ENGINEERING",
+  "CLOUD SYSTEMS",
+  "APPLIED AI",
+  "OBSERVABILITY",
+  "SECURE DELIVERY",
 ];
 
 export function HomeExperience() {
@@ -166,22 +180,15 @@ export function HomeExperience() {
       </section>
 
       <div className="motion-ribbon" aria-label="StackOrcs capability highlights">
-        <div>
-          {[
-            "PRODUCT ENGINEERING",
-            "CLOUD SYSTEMS",
-            "APPLIED AI",
-            "OBSERVABILITY",
-            "SECURE DELIVERY",
-            "PRODUCT ENGINEERING",
-            "CLOUD SYSTEMS",
-            "APPLIED AI",
-            "OBSERVABILITY",
-            "SECURE DELIVERY",
-          ].map((item, index) => (
-            <span key={item + index}>
-              {item} <i />
-            </span>
+        <div className="motion-ribbon__track">
+          {[0, 1].map((group) => (
+            <div className="motion-ribbon__group" aria-hidden="true" key={group}>
+              {ribbonItems.map((item, index) => (
+                <span key={`${group}-${item}-${index}`}>
+                  {item} <i />
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -289,7 +296,7 @@ export function HomeExperience() {
                   <h3>{title}</h3>
                   <p>{text}</p>
                 </div>
-                <ArrowUpRight aria-hidden="true" />
+                <CheckCircle weight="regular" aria-hidden="true" />
               </SectionReveal>
             ))}
           </div>
@@ -300,7 +307,14 @@ export function HomeExperience() {
         <div className="shell trust-grid">
           <SectionReveal className="trust-visual">
             <div className="trust-orbit" aria-hidden="true">
-              <span className="trust-orbit__core">SO</span>
+              <span className="trust-orbit__core">
+                <Image
+                  src="/stackorcs-logo.png"
+                  alt=""
+                  fill
+                  sizes="90px"
+                />
+              </span>
               <i />
               <i />
               <i />

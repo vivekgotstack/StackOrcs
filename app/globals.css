@@ -577,7 +577,7 @@ button {
   inset: 50%;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  translate: -50% -50%;
 }
 
 .orbit-ring--outer {
@@ -638,7 +638,7 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 34px;
   background: white;
-  transform: translate(-50%, -50%);
+  translate: -50% -50%;
   box-shadow:
     0 0 0 10px rgba(255, 255, 255, 0.04),
     0 30px 60px rgba(0, 0, 0, 0.32);
@@ -734,13 +734,20 @@ button {
   overflow: hidden;
   color: var(--ink);
   background: var(--orange);
-  transform: rotate(-1.2deg) scale(1.02);
 }
 
-.motion-ribbon > div {
+.motion-ribbon__track {
   display: flex;
   width: max-content;
   animation: ribbon-move 28s linear infinite;
+  will-change: transform;
+}
+
+.motion-ribbon__group {
+  display: flex;
+  flex: none;
+  min-width: 100vw;
+  justify-content: space-around;
 }
 
 .motion-ribbon span {
@@ -763,7 +770,7 @@ button {
 
 @keyframes ribbon-move {
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -1208,14 +1215,6 @@ button {
   min-height: 215px;
   padding: 36px 10px 36px 0;
   border-bottom: 1px solid var(--line-light);
-  transition:
-    padding 300ms var(--ease-out),
-    background 300ms ease;
-}
-
-.operating-step:hover {
-  padding-left: 18px;
-  background: rgba(255, 255, 255, 0.22);
 }
 
 .operating-step > span {
@@ -1240,12 +1239,7 @@ button {
 .operating-step > svg {
   width: 22px;
   height: 22px;
-  transition: transform 300ms var(--ease-out);
-}
-
-.operating-step:hover > svg {
   color: var(--orange);
-  transform: rotate(45deg);
 }
 
 .trust-grid {
@@ -1299,13 +1293,16 @@ button {
   width: 90px;
   height: 90px;
   place-items: center;
-  color: white;
+  overflow: hidden;
   border-radius: 24px;
-  background: var(--orange);
+  background: white;
   box-shadow: 0 20px 40px rgba(216, 61, 0, 0.22);
-  font-size: 24px;
-  font-weight: 850;
   transform: translate(-50%, -50%);
+}
+
+.trust-orbit__core img {
+  object-fit: cover;
+  transform: scale(1.38);
 }
 
 .trust-orbit > i {
