@@ -9,6 +9,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://stackorcs.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: "StackOrcs",
+  creator: "StackOrcs",
+  publisher: "StackOrcs",
+  category: "technology",
   title: {
     default: "StackOrcs — Digital Engineering, Built to Move",
     template: "%s — StackOrcs",
@@ -48,6 +52,14 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
+  appleWebApp: {
+    capable: true,
+    title: "StackOrcs",
+    statusBarStyle: "black-translucent",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export const viewport: Viewport = {
