@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { newsletterWelcomeEmail } from "@/lib/email-templates";
+import {
+  newsletterOwnerEmail,
+  newsletterWelcomeEmail,
+} from "@/lib/email-templates";
 import {
   cleanText,
   clientAddress,
@@ -29,28 +32,44 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Enter a valid work email." }, { status: 400 });
     }
     const resend = getResend();
-    const segmentId = await getNewsletterSegmentId(resend);
-    const { from, replyTo } = getEmailConfig();
-    const created = await resend.contacts.create({
-      email,
-      firstName: firstName || undefined,
-      unsubscribed: false,
-      segments: [{ id: segmentId }],
-    });
-    if (created.error) {
-      const added = await resend.contacts.segments.add({ email, segmentId });
-      if (added.error) throw new Error(added.error.message);
-      return NextResponse.json({ ok: true, existing: true });
+    const { from, replyTo, recipient } = getEmailConfig();
+    const delivery = await resend.batch.send([
+      {
+        from,
+        to: [recipient],
+        replyTo: email,
+        subject: `New Field Notes subscriber${firstName ? ` — ${firstName}` : ""}`,
+        html: newsletterOwnerEmail(email, firstName),
+      },
+      {
+        from,
+        to: [email],
+        replyTo,
+        subject: "Welcome to StackOrcs Field Notes",
+        html: newsletterWelcomeEmail(firstName),
+      },
+    ]);
+    if (delivery.error) throw new Error(delivery.error.message);
+
+    let existing = false;
+    try {
+      const segmentId = await getNewsletterSegmentId(resend);
+      const created = await resend.contacts.create({
+        email,
+        firstName: firstName || undefined,
+        unsubscribed: false,
+        segments: [{ id: segmentId }],
+      });
+      if (created.error) {
+        existing = true;
+        const added = await resend.contacts.segments.add({ email, segmentId });
+        if (added.error) console.warn("Newsletter contact sync skipped", added.error.message);
+      }
+    } catch (syncError) {
+      console.warn("Newsletter contact sync skipped", syncError);
     }
-    const welcome = await resend.emails.send({
-      from,
-      to: [email],
-      replyTo,
-      subject: "Welcome to StackOrcs Field Notes",
-      html: newsletterWelcomeEmail(firstName),
-    });
-    if (welcome.error) throw new Error(welcome.error.message);
-    return NextResponse.json({ ok: true, existing: false });
+
+    return NextResponse.json({ ok: true, existing });
   } catch (error) {
     console.error("Newsletter subscription failed", error);
     return NextResponse.json(

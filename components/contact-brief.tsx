@@ -6,6 +6,23 @@ import { AnimatePresence, motion } from "motion/react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
+const serviceOptions = [
+  "Product engineering",
+  "Experience & design systems",
+  "Cloud & platform engineering",
+  "Applied AI & automation",
+  "Monitoring & digital operations",
+  "Security engineering",
+  "Not sure yet",
+];
+
+const timelineOptions = [
+  "As soon as possible",
+  "Within 1–3 months",
+  "Within 3–6 months",
+  "Exploring for later",
+];
+
 export function ContactBrief() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
@@ -46,47 +63,48 @@ export function ContactBrief() {
         <input name="website" type="text" tabIndex={-1} autoComplete="off" />
       </label>
       <div className="field-row">
-        <label>
+        <label className="text-field">
           <span>Your name</span>
           <input name="name" type="text" autoComplete="name" maxLength={100} required />
         </label>
-        <label>
+        <label className="text-field">
           <span>Work email</span>
           <input name="email" type="email" autoComplete="email" maxLength={254} required />
         </label>
       </div>
-      <div className="field-row">
-        <label>
+      <div className="field-row field-row--single">
+        <label className="text-field">
           <span>Company</span>
           <input name="company" type="text" autoComplete="organization" maxLength={140} />
         </label>
-        <label>
-          <span>What do you need?</span>
-          <select name="service" defaultValue="">
-            <option value="" disabled>Select a capability</option>
-            <option>Product engineering</option>
-            <option>Experience & design systems</option>
-            <option>Cloud & platform engineering</option>
-            <option>Applied AI & automation</option>
-            <option>Monitoring & digital operations</option>
-            <option>Security engineering</option>
-            <option>Not sure yet</option>
-          </select>
-        </label>
       </div>
-      <div className="field-row field-row--single">
-        <label>
-          <span>Ideal timeline</span>
-          <select name="timeline" defaultValue="">
-            <option value="" disabled>Choose a window</option>
-            <option>As soon as possible</option>
-            <option>Within 1–3 months</option>
-            <option>Within 3–6 months</option>
-            <option>Exploring for later</option>
-          </select>
-        </label>
-      </div>
-      <label>
+      <fieldset className="contact-choice contact-choice--services">
+        <legend>What do you need?</legend>
+        <div className="contact-choice__grid">
+          {serviceOptions.map((option, index) => (
+            <label className="contact-choice__option" key={option}>
+              <input name="service" type="radio" value={option} />
+              <span>0{index + 1}</span>
+              <strong>{option}</strong>
+              <Check weight="bold" aria-hidden="true" />
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <fieldset className="contact-choice contact-choice--timeline">
+        <legend>Ideal timeline</legend>
+        <div className="contact-choice__grid">
+          {timelineOptions.map((option, index) => (
+            <label className="contact-choice__option" key={option}>
+              <input name="timeline" type="radio" value={option} />
+              <span>0{index + 1}</span>
+              <strong>{option}</strong>
+              <Check weight="bold" aria-hidden="true" />
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <label className="text-field text-field--challenge">
         <span>Tell us about the challenge</span>
         <textarea
           name="challenge"

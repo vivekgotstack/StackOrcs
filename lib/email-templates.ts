@@ -85,6 +85,19 @@ export function newsletterWelcomeEmail(firstName?: string) {
   );
 }
 
+export function newsletterOwnerEmail(email: string, firstName?: string) {
+  return shell(
+    `<div style="color:${orange};font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase">New Field Notes subscriber</div>
+<h1 style="margin:14px 0 18px;font-size:38px;line-height:1.04;letter-spacing:-1.8px">The audience<br>just grew.</h1>
+<p style="margin:0 0 24px;color:${muted};font-size:16px;line-height:1.7">A new reader subscribed through stackorcs.com.</p>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+<tr><td style="padding:11px 0;color:${muted};font-size:12px;border-bottom:1px solid #ded8cf">Name</td><td style="padding:11px 0;text-align:right;font-weight:650;border-bottom:1px solid #ded8cf">${escapeHtml(firstName || "Not provided")}</td></tr>
+<tr><td style="padding:11px 0;color:${muted};font-size:12px;border-bottom:1px solid #ded8cf">Email</td><td style="padding:11px 0;text-align:right;font-weight:650;border-bottom:1px solid #ded8cf">${escapeHtml(email)}</td></tr>
+</table>`,
+    `New Field Notes subscriber: ${email}`,
+  );
+}
+
 export function broadcastEmail(input: {
   title: string;
   excerpt: string;
