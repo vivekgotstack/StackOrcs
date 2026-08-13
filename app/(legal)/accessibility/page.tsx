@@ -4,67 +4,128 @@ import { LegalDocument } from "@/components/legal-document";
 export const metadata: Metadata = {
   title: "Accessibility",
   description:
-    "The StackOrcs commitment to an accessible and inclusive web experience.",
+    "The StackOrcs accessibility standard, testing practice, and remediation process.",
 };
 
 export default function AccessibilityPage() {
   return (
     <LegalDocument
-      eyebrow="Trust center"
-      title="Accessibility statement"
-      summary="StackOrcs aims to make this website usable by as many people as possible, across devices, input methods, and assistive technologies."
+      eyebrow="Accessibility statement"
+      title="Access without barriers"
+      summary="StackOrcs has adopted WCAG 2.2 Level AA as the accessibility standard for this website. Accessibility is treated as a product requirement across design, content, engineering, and ongoing maintenance."
       sections={[
         {
-          title: "Our target",
+          title: "Standard and scope",
           content: (
-            <p>
-              The site is designed with WCAG 2.2 Level AA principles in mind,
-              including keyboard access, semantic structure, visible focus,
-              readable contrast, responsive layouts, and reduced-motion support.
-            </p>
+            <>
+              <p>
+                This statement covers the public pages, navigation, forms, and
+                first-party content published on this website. The governing
+                technical reference is the Web Content Accessibility Guidelines
+                2.2, Level A and Level AA success criteria.
+              </p>
+              <p>
+                Adoption of this standard is an operating commitment. It is not
+                a claim that every page has completed an independent conformance
+                audit. Any verified barrier within StackOrcs&apos; control enters
+                the remediation process described below.
+              </p>
+            </>
           ),
         },
         {
-          title: "Supported interaction",
+          title: "Experience requirements",
           content: (
             <ul>
-              <li>Navigate core content and controls with a keyboard.</li>
-              <li>Skip repeated navigation and move directly to content.</li>
-              <li>Use zoom and responsive reflow on smaller screens.</li>
-              <li>Reduce non-essential motion through system preferences.</li>
-              <li>Understand forms through persistent labels and clear states.</li>
+              <li>
+                Core content and controls must be available without a mouse.
+              </li>
+              <li>
+                Pages must expose meaningful headings, landmarks, labels, names,
+                roles, and status messages to assistive technology.
+              </li>
+              <li>
+                Focus must remain visible and must not be obscured by persistent
+                interface elements.
+              </li>
+              <li>
+                Text, controls, and essential graphics must maintain readable
+                contrast and support zoom and small-screen reflow.
+              </li>
+              <li>
+                Non-essential motion must respect reduced-motion preferences,
+                and information must not depend on colour alone.
+              </li>
+              <li>
+                Forms must provide persistent labels, understandable
+                instructions, and actionable error feedback.
+              </li>
             </ul>
           ),
         },
         {
-          title: "Known limitations",
+          title: "Testing and release control",
+          content: (
+            <>
+              <p>
+                Accessibility review is part of component and page delivery.
+                Checks combine automated analysis with keyboard, zoom, responsive
+                reflow, focus-order, contrast, and screen-reader-oriented manual
+                review of critical journeys.
+              </p>
+              <p>
+                Material accessibility regressions are release defects. New
+                components must preserve semantic structure and interaction
+                behaviour before they are reused across the site.
+              </p>
+            </>
+          ),
+        },
+        {
+          title: "Compatible use",
           content: (
             <p>
-              Third-party destinations, including LinkedIn, are outside
-              StackOrcs&apos; control. The supplied brand image contains the logo
-              on a white field, which is intentionally presented as a bounded
-              brand tile for clarity.
+              The website is designed for current versions of major standards-
+              based browsers and common platform assistive technologies. Users
+              should be able to navigate with a keyboard, enlarge content,
+              change orientation, use responsive layouts, and request reduced
+              motion without losing essential information or functionality.
             </p>
           ),
         },
         {
-          title: "Continuous improvement",
+          title: "Third-party services",
           content: (
             <p>
-              Accessibility is an ongoing practice. The site should be reviewed
-              when content, components, browsers, or assistive technologies
-              change, and issues should be prioritized according to user impact.
+              Links and embedded destinations operated by third parties, such as
+              LinkedIn, are governed by those providers once a visitor leaves
+              this website. StackOrcs selects and links to external services with
+              accessibility in mind, identifies external destinations where
+              practical, and provides an alternative contact route when a
+              third-party barrier prevents completion of a StackOrcs request.
             </p>
           ),
         },
         {
-          title: "Feedback",
+          title: "Report a barrier",
           content: (
-            <p>
-              If part of the site is difficult to use, contact StackOrcs with
-              the page, device, browser, assistive technology if relevant, and
-              the result you were trying to achieve.
-            </p>
+            <>
+              <p>
+                Report an accessibility issue through the contact page. Include
+                the page or component, the task you were attempting, your device
+                and browser, and any assistive technology used. Do not include
+                sensitive personal information that is not needed to investigate
+                the issue.
+              </p>
+              <p>
+                StackOrcs targets acknowledgement within three business days and
+                an initial assessment within ten business days. Confirmed issues
+                are prioritized by user impact, reach, and availability of an
+                accessible alternative. On request, StackOrcs will provide the
+                relevant information or service through a reasonable alternative
+                format while remediation is underway.
+              </p>
+            </>
           ),
         },
       ]}

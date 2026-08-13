@@ -53,15 +53,15 @@ export function LegalDocument({
             </section>
           ))}
           <div className="legal-contact">
-            <p>Questions about this document?</p>
-            <Link href="/contact">Contact StackOrcs</Link>
+            <p>Policy enquiries and rights requests</p>
+            <Link href="/contact">Contact the StackOrcs team</Link>
           </div>
         </article>
       </div>
       <PageEnding
-        eyebrow="Need a clear answer?"
-        title="Talk with StackOrcs."
-        description="If a policy, practice, or part of this site needs clarification, send us the question directly."
+        eyebrow="Policy and trust enquiries"
+        title="Raise a request with StackOrcs."
+        description="Send a privacy request, accessibility issue, security report, or question about these terms through our secure contact channel."
       />
     </main>
   );
