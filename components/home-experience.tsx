@@ -69,9 +69,6 @@ export function HomeExperience() {
         </video>
         <div className="shell gateway-hero__grid">
           <div className="gateway-hero__copy">
-            <p className="gateway-availability">
-              <span /> Engineering partner for ambitious teams
-            </p>
             <h1>
               We build digital systems
               <em>that move business.</em>
@@ -90,11 +87,6 @@ export function HomeExperience() {
               <Link className="gateway-secondary" href="/services">
                 Explore services <ArrowDown aria-hidden="true" />
               </Link>
-            </div>
-            <div className="gateway-signals" aria-label="Delivery principles">
-              <span>Remote-first</span>
-              <span>Secure by design</span>
-              <span>Performance-minded</span>
             </div>
           </div>
         </div>
