@@ -50,7 +50,7 @@ export default function ContactPage() {
             </div>
             <a
               className="linkedin-panel"
-              href="https://www.linkedin.com/in/stackorcs"
+              href="https://www.linkedin.com/company/stackorcs/"
               target="_blank"
               rel="noreferrer"
             >

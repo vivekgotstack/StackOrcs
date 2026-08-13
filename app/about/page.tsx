@@ -101,7 +101,7 @@ export default function AboutPage() {
             </p>
             <a
               className="text-link"
-              href="https://www.linkedin.com/in/stackorcs"
+              href="https://www.linkedin.com/company/stackorcs/"
               target="_blank"
               rel="noreferrer"
             >

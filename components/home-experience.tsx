@@ -354,7 +354,7 @@ export function HomeExperience() {
               </MagneticLink>
               <a
                 className="quiet-link quiet-link--light"
-                href="https://www.linkedin.com/in/stackorcs"
+                href="https://www.linkedin.com/company/stackorcs/"
                 target="_blank"
                 rel="noreferrer"
               >

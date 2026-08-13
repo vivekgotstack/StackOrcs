@@ -39,7 +39,7 @@ export function SiteFooter() {
             </p>
             <a
               className="social-link"
-              href="https://www.linkedin.com/in/stackorcs"
+              href="https://www.linkedin.com/company/stackorcs/"
               target="_blank"
               rel="noreferrer"
             >
