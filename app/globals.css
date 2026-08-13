@@ -1459,7 +1459,7 @@ button {
   padding: clamp(120px, 13vw, 200px) 0;
   overflow: hidden;
   color: white;
-  background: var(--orange-deep);
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 72%);
 }
 
 .closing-cta::before {
@@ -2174,18 +2174,23 @@ button {
 .page-cta::after {
   position: absolute;
   content: "STACKORCS";
-  right: -0.02em;
-  bottom: -0.2em;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  width: max-content;
   color: rgba(8, 8, 7, 0.032);
-  font-size: clamp(100px, 19vw, 320px);
+  font-size: min(17vw, 300px);
   font-weight: 900;
+  line-height: 0.8;
   letter-spacing: -0.08em;
+  white-space: nowrap;
   pointer-events: none;
+  transform: translateX(-50%);
 }
 
 .page-cta--dark {
   color: var(--paper);
-  background: var(--orange-deep);
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 72%);
 }
 
 .page-cta .shell {
@@ -4044,6 +4049,343 @@ button {
 
   .admin-intro h1 {
     font-size: 58px;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --shell: calc(100% - 24px);
+  }
+
+  .site-header__inner {
+    height: 68px;
+  }
+
+  .brand-mark__image {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-mark__word {
+    font-size: 16px;
+  }
+
+  .mobile-nav {
+    top: 68px;
+    padding: 12px 14px 22px;
+  }
+
+  .mobile-nav a {
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    padding: 18px 2px;
+    font-size: 24px;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 108px 0 68px;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 15.5vw, 62px);
+  }
+
+  .hero-actions,
+  .closing-actions {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .hero-proof {
+    gap: 18px;
+  }
+
+  .hero-proof > div {
+    width: calc(50% - 9px);
+  }
+
+  .orbit-core {
+    width: 92px;
+    height: 92px;
+  }
+
+  .section,
+  .page-section,
+  .engagement-band,
+  .principles-section,
+  .company-note,
+  .contact-section {
+    padding-top: 82px;
+    padding-bottom: 82px;
+  }
+
+  .intro-section {
+    padding-top: 98px;
+  }
+
+  .intro-statement h2,
+  .section-heading h2,
+  .operating-sticky h2,
+  .trust-copy h2,
+  .page-intro h2,
+  .about-statement h2,
+  .insights-intro h2,
+  .contact-aside h2 {
+    font-size: 38px;
+  }
+
+  .capability-tabs {
+    grid-template-columns: repeat(5, minmax(136px, 1fr));
+  }
+
+  .capability-tabs button {
+    min-height: 102px;
+    padding: 15px;
+  }
+
+  .capability-stage,
+  .capability-display {
+    min-height: 0;
+  }
+
+  .capability-display {
+    padding: 36px 20px 42px;
+  }
+
+  .capability-display h3 {
+    font-size: 38px;
+  }
+
+  .trust-visual {
+    min-height: 390px;
+  }
+
+  .trust-orbit {
+    width: 300px;
+    height: 300px;
+  }
+
+  .closing-cta,
+  .page-cta {
+    padding-top: 86px;
+    padding-bottom: 86px;
+  }
+
+  .closing-cta h2,
+  .page-cta h2 {
+    font-size: 46px;
+    overflow-wrap: break-word;
+  }
+
+  .page-cta .shell > div > p:not(.kicker) {
+    font-size: 16px;
+  }
+
+  .button-link {
+    max-width: 100%;
+    gap: 14px;
+    padding-left: 18px;
+  }
+
+  .site-footer {
+    padding-top: 64px;
+  }
+
+  .newsletter-panel {
+    margin-bottom: 62px;
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .newsletter-panel h2 {
+    font-size: 31px;
+  }
+
+  .newsletter-panel form {
+    grid-template-columns: minmax(0, 1fr) 48px;
+  }
+
+  .newsletter-panel form > button {
+    width: 48px;
+    height: 50px;
+  }
+
+  .newsletter-panel input {
+    min-width: 0;
+    height: 50px;
+    padding-inline: 12px;
+  }
+
+  .footer-main {
+    gap: 40px 22px;
+    padding-bottom: 58px;
+  }
+
+  .footer-cta h2 {
+    font-size: 30px;
+  }
+
+  .cookie-notice {
+    right: 12px;
+    bottom: 12px;
+    width: calc(100vw - 24px);
+    padding: 20px;
+  }
+
+  .subpage-hero {
+    min-height: 0;
+    padding: 116px 0 62px;
+  }
+
+  .subpage-hero h1 {
+    font-size: clamp(46px, 15.5vw, 62px);
+    overflow-wrap: break-word;
+  }
+
+  .subpage-hero__bottom {
+    margin-top: 32px;
+  }
+
+  .page-intro {
+    gap: 24px;
+  }
+
+  .service-card {
+    min-height: 0;
+    padding: 24px 20px 28px;
+  }
+
+  .service-card h3 {
+    margin-top: 48px;
+    font-size: 34px;
+  }
+
+  .service-card > p {
+    font-size: 15px;
+  }
+
+  .engagement-band h2,
+  .principles-section h2,
+  .company-note h2 {
+    font-size: 40px;
+  }
+
+  .engagement-option {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+    padding: 28px 0;
+  }
+
+  .approach-row {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .approach-row__copy h2 {
+    font-size: 31px;
+  }
+
+  .principle-item {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .value-card,
+  .insight-lane {
+    min-height: 290px;
+    padding: 24px 20px;
+  }
+
+  .company-note__mark {
+    min-height: 300px;
+  }
+
+  .contact-grid {
+    gap: 54px;
+  }
+
+  .contact-form,
+  .admin-publisher {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .contact-form__head,
+  .admin-publisher__status {
+    gap: 16px;
+    line-height: 1.4;
+  }
+
+  .field-row > *,
+  .contact-grid > *,
+  .newsletter-panel form > * {
+    min-width: 0;
+  }
+
+  .linkedin-panel {
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .contact-expectation {
+    padding: 72px 0;
+  }
+
+  .expectation-step {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .expectation-step h3 {
+    margin-top: 36px;
+  }
+
+  .legal-hero {
+    padding: 116px 0 62px;
+  }
+
+  .legal-hero h1 {
+    font-size: 48px;
+    overflow-wrap: break-word;
+  }
+
+  .legal-layout {
+    gap: 44px;
+    padding-top: 48px;
+    padding-bottom: 80px;
+  }
+
+  .legal-layout article > section {
+    grid-template-columns: 28px minmax(0, 1fr);
+    padding-bottom: 44px;
+    margin-bottom: 44px;
+  }
+
+  .legal-layout article > section > div {
+    min-width: 0;
+  }
+
+  .legal-contact {
+    padding: 20px;
+  }
+
+  .admin-page {
+    padding: 112px 0 78px;
+  }
+
+  .admin-intro h1 {
+    font-size: 48px;
+  }
+
+  .not-found {
+    gap: 42px;
+    padding: 112px 16px 72px;
+  }
+
+  .not-found > div:last-child h1 {
+    font-size: 48px;
+    overflow-wrap: break-word;
   }
 }
 

@@ -6,6 +6,7 @@ import {
   LockKey,
 } from "@phosphor-icons/react/dist/ssr";
 import { ContactBrief } from "@/components/contact-brief";
+import { PageEnding } from "@/components/page-ending";
 import { SubpageHero } from "@/components/subpage-hero";
 import { SectionReveal } from "@/components/section-reveal";
 
@@ -25,7 +26,7 @@ export default function ContactPage() {
         accent="And the messy bits."
         description="Tell us what needs to change, what is getting in the way, and why it matters. We will start there."
       />
-      <section className="contact-section">
+      <section className="contact-section" id="project-brief">
         <div className="shell contact-grid">
           <SectionReveal className="contact-aside">
             <p className="kicker">Start the signal</p>
@@ -86,6 +87,13 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <PageEnding
+        eyebrow="Ready when you are"
+        title="Put the real challenge on the table."
+        description="Share the useful context, even if it is incomplete. That is enough to begin a focused conversation."
+        action="Share your project"
+        href="#project-brief"
+      />
     </main>
   );
 }

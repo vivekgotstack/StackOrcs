@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { PageEnding } from "./page-ending";
 
 export type LegalSection = {
   title: string;
@@ -57,6 +58,11 @@ export function LegalDocument({
           </div>
         </article>
       </div>
+      <PageEnding
+        eyebrow="Need a clear answer?"
+        title="Talk with StackOrcs."
+        description="If a policy, practice, or part of this site needs clarification, send us the question directly."
+      />
     </main>
   );
 }

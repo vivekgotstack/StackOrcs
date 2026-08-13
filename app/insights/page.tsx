@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, Brain, Cloud, Pulse, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
+import { PageEnding } from "@/components/page-ending";
 import { SectionReveal } from "@/components/section-reveal";
 import { SubpageHero } from "@/components/subpage-hero";
 
@@ -71,6 +72,11 @@ export default function InsightsPage() {
           })}
         </div>
       </section>
+      <PageEnding
+        eyebrow="From signal to delivery"
+        title="Have a system worth improving?"
+        description="Bring the product, platform, or operational challenge. We will help turn it into a clear route forward."
+      />
     </main>
   );
 }
