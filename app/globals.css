@@ -1465,15 +1465,7 @@ button {
   padding: clamp(120px, 13vw, 200px) 0;
   overflow: hidden;
   color: white;
-  background:
-    linear-gradient(
-      to bottom,
-      var(--orange-deep) 0,
-      rgba(216, 61, 0, 0.88) 32px,
-      rgba(216, 61, 0, 0.42) 88px,
-      transparent 156px
-    ),
-    linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 72%);
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 72%);
 }
 
 .closing-cta::before {
