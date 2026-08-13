@@ -101,11 +101,13 @@ button {
     rgba(255, 90, 31, 0.035) 38%,
     transparent 72%
   );
-  mix-blend-mode: screen;
+  contain: strict;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 .route-frame {
-  animation: route-enter 700ms var(--ease-out) both;
+  animation: route-enter 700ms var(--ease-out);
 }
 
 @keyframes route-enter {
@@ -124,6 +126,7 @@ button {
   z-index: 100;
   inset: 0 0 auto;
   color: var(--paper);
+  backface-visibility: hidden;
   transition:
     background 300ms ease,
     transform 300ms ease,
@@ -141,8 +144,7 @@ button {
 }
 
 .site-header--scrolled {
-  background: rgba(8, 8, 7, 0.84);
-  backdrop-filter: blur(18px) saturate(130%);
+  background: rgba(8, 8, 7, 0.96);
 }
 
 .site-header--scrolled::after {
@@ -1721,9 +1723,9 @@ button {
   color: var(--ink);
   border: 1px solid rgba(8, 8, 7, 0.16);
   border-radius: 18px;
-  background: rgba(255, 253, 247, 0.94);
+  background: #fffdf7;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(18px);
+  backface-visibility: hidden;
 }
 
 .cookie-notice > button {
