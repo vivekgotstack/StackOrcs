@@ -37,7 +37,7 @@ export default function InsightsPage() {
   return (
     <main id="main-content">
       <SubpageHero
-        index="05 / 05"
+        index="04 / 06"
         eyebrow="Field Notes"
         title="Useful signal."
         accent="No content theatre."

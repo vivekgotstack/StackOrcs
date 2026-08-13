@@ -9,6 +9,7 @@ const columns = [
     links: [
       ["/services", "Services"],
       ["/approach", "Approach"],
+      ["/work", "Work"],
       ["/insights", "Insights"],
       ["/about", "Company"],
       ["/contact", "Contact"],

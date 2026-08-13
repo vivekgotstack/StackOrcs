@@ -20,7 +20,7 @@ export default function ContactPage() {
   return (
     <main id="main-content">
       <SubpageHero
-        index="04 / 05"
+        index="06 / 06"
         eyebrow="New business"
         title="Bring the ambition."
         accent="And the messy bits."

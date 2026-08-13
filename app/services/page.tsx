@@ -103,7 +103,7 @@ export default function ServicesPage() {
   return (
     <main id="main-content">
       <SubpageHero
-        index="01 / 05"
+        index="01 / 06"
         eyebrow="Capabilities"
         title="The complete"
         accent="delivery chain."

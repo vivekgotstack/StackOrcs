@@ -44,7 +44,7 @@ export default function AboutPage() {
   return (
     <main id="main-content">
       <SubpageHero
-        index="03 / 05"
+        index="05 / 06"
         eyebrow="Company"
         title="Serious engineering."
         accent="Human partnership."

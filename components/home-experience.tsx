@@ -19,20 +19,27 @@ const pageLinks = [
   },
   {
     number: "03",
+    href: "/work",
+    title: "Work",
+    description:
+      "Selected commerce and knowledge products, shown with the engineering context behind them.",
+  },
+  {
+    number: "04",
     href: "/insights",
     title: "Insights",
     description:
       "Field notes on engineering, AI, cloud, security, observability, and practical delivery.",
   },
   {
-    number: "04",
+    number: "05",
     href: "/about",
     title: "Company",
     description:
       "The operating principles, name, network, and long-term perspective behind StackOrcs.",
   },
   {
-    number: "05",
+    number: "06",
     href: "/contact",
     title: "Start a project",
     description:
@@ -69,13 +76,16 @@ export function HomeExperience() {
         </video>
         <div className="shell gateway-hero__grid">
           <div className="gateway-hero__copy">
+            <p className="gateway-availability">
+              <span /> Engineering partner for ambitious teams
+            </p>
             <h1>
-              We build digital systems
+              Digital systems
               <em>that move business.</em>
             </h1>
             <p className="gateway-hero__lede">
-              StackOrcs connects strategy, product engineering, cloud, AI,
-              security, and operations into one accountable delivery system.
+              Strategy, engineering, cloud, AI, security, and operations—
+              delivered by one accountable partner.
             </p>
             <div className="gateway-actions">
               <Link className="gateway-primary" href="/contact">
@@ -87,6 +97,11 @@ export function HomeExperience() {
               <Link className="gateway-secondary" href="/services">
                 Explore services <ArrowDown aria-hidden="true" />
               </Link>
+            </div>
+            <div className="gateway-signals" aria-label="Delivery principles">
+              <span>Remote-first</span>
+              <span>Secure by design</span>
+              <span>Performance-minded</span>
             </div>
           </div>
         </div>
@@ -133,10 +148,11 @@ export function HomeExperience() {
       </section>
 
       <PageEnding
-        eyebrow="A serious system starts with a clear conversation"
-        title="Bring us the ambition."
-        description="Tell us what must change, what cannot fail, and where momentum is being lost. We will turn it into a practical delivery path."
-        action="Start a project"
+        eyebrow="Selected work — built beyond the surface"
+        title="See what we ship."
+        description="Explore live commerce and knowledge products shaped from experience through architecture, infrastructure, and operations."
+        action="Explore our work"
+        href="/work"
       />
     </main>
   );

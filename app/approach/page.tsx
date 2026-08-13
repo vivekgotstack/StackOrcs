@@ -55,7 +55,7 @@ export default function ApproachPage() {
   return (
     <main id="main-content">
       <SubpageHero
-        index="02 / 05"
+        index="02 / 06"
         eyebrow="How we work"
         title="Momentum without"
         accent="the mystery."

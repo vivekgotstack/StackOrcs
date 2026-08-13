@@ -10,6 +10,7 @@ import { BrandMark } from "./brand-mark";
 const navItems = [
   { href: "/services", label: "Services" },
   { href: "/approach", label: "Approach" },
+  { href: "/work", label: "Work" },
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "Company" },
   { href: "/contact", label: "Contact" },
@@ -24,7 +25,11 @@ export function SiteHeader() {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    document.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => setOpen(false), [pathname]);
