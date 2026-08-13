@@ -39,10 +39,8 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
-    const recipient = process.env.CONTACT_RECIPIENT;
-    if (!recipient) throw new Error("Contact recipient is not configured.");
     const resend = getResend();
-    const { from, replyTo } = getEmailConfig();
+    const { from, replyTo, recipient } = getEmailConfig();
     const { error } = await resend.batch.send([
       {
         from,

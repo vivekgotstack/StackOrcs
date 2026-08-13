@@ -2,7 +2,11 @@ import { timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
 import { broadcastEmail } from "@/lib/email-templates";
 import { cleanText, rateLimit } from "@/lib/request-guard";
-import { getEmailConfig, getResend } from "@/lib/resend";
+import {
+  getEmailConfig,
+  getNewsletterSegmentId,
+  getResend,
+} from "@/lib/resend";
 
 function authorized(request: Request) {
   const supplied = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "") || "";
@@ -37,10 +41,9 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
-    const segmentId = process.env.RESEND_NEWSLETTER_SEGMENT_ID;
-    if (!segmentId) throw new Error("Newsletter segment is not configured.");
     const { from } = getEmailConfig();
     const resend = getResend();
+    const segmentId = await getNewsletterSegmentId(resend);
     const broadcast = {
       segmentId,
       from,

@@ -7,7 +7,11 @@ import {
   rateLimit,
   validEmail,
 } from "@/lib/request-guard";
-import { getEmailConfig, getResend } from "@/lib/resend";
+import {
+  getEmailConfig,
+  getNewsletterSegmentId,
+  getResend,
+} from "@/lib/resend";
 
 export async function POST(request: Request) {
   if (!isAllowedOrigin(request)) {
@@ -24,9 +28,8 @@ export async function POST(request: Request) {
     if (!validEmail(email)) {
       return NextResponse.json({ message: "Enter a valid work email." }, { status: 400 });
     }
-    const segmentId = process.env.RESEND_NEWSLETTER_SEGMENT_ID;
-    if (!segmentId) throw new Error("Newsletter segment is not configured.");
     const resend = getResend();
+    const segmentId = await getNewsletterSegmentId(resend);
     const { from, replyTo } = getEmailConfig();
     const created = await resend.contacts.create({
       email,

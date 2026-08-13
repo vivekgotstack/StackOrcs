@@ -28,7 +28,7 @@ Set NEXT_PUBLIC_SITE_URL to the final production origin before deployment.
 
 ## Email and newsletter
 
-Email delivery uses Resend with custom-domain sender configuration. Copy `.env.example` to `.env.local`, verify the sending domain in Resend, create a Field Notes segment, and configure the listed server-only values.
+Email delivery uses Resend with custom-domain sender configuration. Copy `.env.example` to `.env.local`, verify `stackorcs.com` in Resend, and set the server-only `RESEND_API_KEY`. The app uses StackOrcs-branded sender defaults and creates the Field Notes segment automatically; the other email variables are optional overrides.
 
 - Project inquiries send a branded notification to StackOrcs and a branded acknowledgement to the sender.
 - Newsletter signups become contacts in the configured segment.
