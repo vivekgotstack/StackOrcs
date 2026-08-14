@@ -41,23 +41,26 @@ export async function POST(request: Request) {
     }
     const resend = getResend();
     const { from, replyTo, recipient } = getEmailConfig();
-    const { error } = await resend.batch.send([
-      {
+    const [ownerDelivery, confirmationDelivery] = await Promise.all([
+      resend.emails.send({
         from,
         to: [recipient],
         replyTo: input.email,
         subject: `Project signal — ${input.name}${input.company ? ` / ${input.company}` : ""}`,
         html: inquiryOwnerEmail(input),
-      },
-      {
+      }),
+      resend.emails.send({
         from,
         to: [input.email],
         replyTo,
         subject: "Your StackOrcs project brief is in",
         html: inquiryConfirmationEmail(input.name),
-      },
+      }),
     ]);
-    if (error) throw new Error(error.message);
+    if (ownerDelivery.error) throw new Error(ownerDelivery.error.message);
+    if (confirmationDelivery.error) {
+      console.warn("Contact confirmation delivery skipped", confirmationDelivery.error.message);
+    }
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Contact delivery failed", error);

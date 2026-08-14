@@ -33,23 +33,26 @@ export async function POST(request: Request) {
     }
     const resend = getResend();
     const { from, replyTo, recipient } = getEmailConfig();
-    const delivery = await resend.batch.send([
-      {
+    const [ownerDelivery, welcomeDelivery] = await Promise.all([
+      resend.emails.send({
         from,
         to: [recipient],
         replyTo: email,
         subject: `New Field Notes subscriber${firstName ? ` — ${firstName}` : ""}`,
         html: newsletterOwnerEmail(email, firstName),
-      },
-      {
+      }),
+      resend.emails.send({
         from,
         to: [email],
         replyTo,
         subject: "Welcome to StackOrcs Field Notes",
         html: newsletterWelcomeEmail(firstName),
-      },
+      }),
     ]);
-    if (delivery.error) throw new Error(delivery.error.message);
+    if (ownerDelivery.error) throw new Error(ownerDelivery.error.message);
+    if (welcomeDelivery.error) {
+      console.warn("Newsletter welcome delivery skipped", welcomeDelivery.error.message);
+    }
 
     let existing = false;
     try {
@@ -69,7 +72,11 @@ export async function POST(request: Request) {
       console.warn("Newsletter contact sync skipped", syncError);
     }
 
-    return NextResponse.json({ ok: true, existing });
+    return NextResponse.json({
+      ok: true,
+      existing,
+      welcomeSent: !welcomeDelivery.error,
+    });
   } catch (error) {
     console.error("Newsletter subscription failed", error);
     return NextResponse.json(

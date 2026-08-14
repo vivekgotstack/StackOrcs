@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 
-const DEFAULT_FROM = "StackOrcs <updates@stackorcs.com>";
-const DEFAULT_REPLY_TO = "hello@stackorcs.com";
+const DEFAULT_FROM = "StackOrcs <onboarding@resend.dev>";
+const DEFAULT_REPLY_TO = "vivekni1224@gmail.com";
 const DEFAULT_NEWSLETTER_SEGMENT = "StackOrcs Field Notes";
 
 let newsletterSegmentPromise: Promise<string> | undefined;
@@ -13,9 +13,24 @@ export function getResend() {
 }
 
 export function getEmailConfig() {
-  const from = process.env.RESEND_FROM_EMAIL || DEFAULT_FROM;
-  const replyTo = process.env.RESEND_REPLY_TO || DEFAULT_REPLY_TO;
-  const recipient = process.env.CONTACT_RECIPIENT || replyTo;
+  const configuredFrom = process.env.RESEND_FROM_EMAIL?.trim();
+  const configuredReplyTo = process.env.RESEND_REPLY_TO?.trim();
+  const configuredRecipient = process.env.CONTACT_RECIPIENT?.trim();
+  const isLegacyStackOrcsAddress = (value?: string) =>
+    Boolean(value && /@stackorcs\.com(?:>|$)/i.test(value));
+
+  const from =
+    configuredFrom && !isLegacyStackOrcsAddress(configuredFrom)
+      ? configuredFrom
+      : DEFAULT_FROM;
+  const replyTo =
+    configuredReplyTo && !isLegacyStackOrcsAddress(configuredReplyTo)
+      ? configuredReplyTo
+      : DEFAULT_REPLY_TO;
+  const recipient =
+    configuredRecipient && !isLegacyStackOrcsAddress(configuredRecipient)
+      ? configuredRecipient
+      : replyTo;
 
   return { from, replyTo, recipient };
 }
