@@ -1,0 +1,7 @@
+.vercel/
+.env*
+node_modules/
+verification/
+assets/*-capture.png
+assets/*-source.*
+assets/brand-optimized.png

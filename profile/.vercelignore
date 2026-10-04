@@ -1,0 +1,12 @@
+scripts
+.env*
+.vercel
+.git
+package.json
+README.md
+node_modules
+package-lock.json
+assets/*-source.*
+assets/*-capture.png
+assets/brand-optimized.png
+verification
